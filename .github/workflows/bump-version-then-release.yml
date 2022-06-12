@@ -1,19 +1,16 @@
 name: bump-version-then-release
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
+  workflow_run:
+    workflows: [check-build-test]
+    types: [completed]
 
 jobs:
   bump-version-then-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the github.event_name contexts
-        run: echo ${{ github.event_name }}
+      - name: Print the github.event contexts
+        run: echo ${{ toJson(github.event) }}
         
       - name: Checkout Code
         uses: actions/checkout@v2
