@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print the github.event contexts
-        run: echo ${{ toJson(github.event) }}
+        env: 
+          GITHUB_EVENT: ${{ toJson(github.event) }}
+        run: |
+          echo "$GITHUB_EVENT"
         
       - name: Checkout Code
         uses: actions/checkout@v2
