@@ -12,6 +12,9 @@ jobs:
   check-build-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Print the github.event_name contexts
+        run: echo ${{ github.event_name }}
+        
       - name: Check out repository code
         uses: actions/checkout@v2
 
