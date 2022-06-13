@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/tyn1998/workflows-for-hypercrx/compare/v1.6.0...v2.0.0) (2022-06-13)
+
+
+### chore
+
+* **xxx:** xxx ([#17](https://github.com/tyn1998/workflows-for-hypercrx/issues/17)) ([8a9d5f7](https://github.com/tyn1998/workflows-for-hypercrx/commit/8a9d5f77a66208800da51f08fb7f0d93d34cdc31))
+
+
+### BREAKING CHANGES
+
+* **xxx:** xxxxxxx.
+
+
+
 # [1.6.0](https://github.com/tyn1998/workflows-for-hypercrx/compare/v1.5.6...v1.6.0) (2022-06-13)
 
 
