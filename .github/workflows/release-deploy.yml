@@ -31,8 +31,13 @@ jobs:
           yarn install
           yarn run build
 
-      - name: zip to hypercrx.zip
-        run: zip release/hypercrx.zip -r build/*
+      - name: Zip to hypercrx.zip
+        run: zip -j release/hypercrx.zip build/*
+
+      - name: Attach version to file names in release assets
+        run: |
+          mv release/hypercrx.crx release/hypercrx-${{ steps.changelog.outputs.tag }}.crx
+          mv release/hypercrx.zip release/hypercrx-${{ steps.changelog.outputs.tag }}.zip
 
       - name: Release
         uses: ncipollo/release-action@v1
