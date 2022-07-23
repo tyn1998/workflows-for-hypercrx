@@ -34,15 +34,15 @@ jobs:
       - name: Zip to hypercrx.zip
         run: zip -j release/hypercrx.zip build/*
 
-      - name: Attach version to file names in release assets
+      - name: Append version to release file names
         run: |
-          mv release/hypercrx.crx release/hypercrx-${{ steps.changelog.outputs.tag }}.crx
-          mv release/hypercrx.zip release/hypercrx-${{ steps.changelog.outputs.tag }}.zip
+          cp release/hypercrx.crx ${{format('release/hypercrx-{0}.crx', steps.changelog.outputs.tag)}}
+          cp release/hypercrx.zip ${{format('release/hypercrx-{0}.zip', steps.changelog.outputs.tag)}}
 
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "release/hypercrx.*"
+          artifacts: "release/hypercrx-v*.*"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.changelog.outputs.tag }}
           generateReleaseNotes: true
